@@ -4,18 +4,17 @@ from scrapy.selector import Selector
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.http import Request,FormRequest
-from zhihu.items import ZhihuUserItem, ZhihuAskItem, ZhihuFollowersItem, ZhihuFolloweesItem, ZhihuAnswerItem
+from zhihu.items import ZhihuUserItem
 
 import json
 from urllib import urlencode
 from datetime import datetime
 
 import sys
-import random
-import time
+
 
 reload(sys)
-sys.setdefaultencoding('utf-8')
+
 
 host='http://www.zhihu.com'
 
@@ -42,8 +41,8 @@ class ZhihuLoginSpider(CrawlSpider):
     def start_requests(self):
         return [FormRequest(
             "http://www.zhihu.com/login",
-            formdata = {'email':'june.chan@foxmail.com',
-                        'password':'czj0617_zhihu'
+            formdata = {'email':'lei.chen@qq.com',
+                        'password':'19920611cl'
             },
             callback = self.after_login
         )]

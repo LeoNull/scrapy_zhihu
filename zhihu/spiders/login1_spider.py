@@ -3,9 +3,9 @@
 from scrapy.selector import Selector
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
-from scrapy.http import Request,FormRequest
+from scrapy.http import FormRequest
 
-from zhihu.settings import *
+from zhihu.settings import HEADER,COOKIES
 
 
 class ZhihuLoginSpider(CrawlSpider):
@@ -40,7 +40,7 @@ class ZhihuLoginSpider(CrawlSpider):
 
         urls = []
         for ele in selector.xpath('//ul/li[@class="suggest-item"]/div/a/@href').extract():
-           urls.append(ele)
+            urls.append(ele)
         print urls
         return urls
 
